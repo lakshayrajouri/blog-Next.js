@@ -1,0 +1,37 @@
+body{
+    color: #171717;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.blogContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0 auto; /* Centers horizontally */
+    width: 80%; /* Optional, ensures proper centering */
+}
+
+.blogHeaeding{
+    color: #333;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h3{
+    color: #333;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.blogDiv{
+    margin: 0 auto;
+    padding: 1rem;
+    width: 80%;
+}

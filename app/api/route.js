@@ -1,0 +1,11 @@
+// export default function handler(req, res){
+//     res.status(200).json({name: 'John Doe'})
+// }
+
+export async function GET(request) {
+    return new Response(JSON.stringify({ message: 'Hello from Next.js API!' }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  
