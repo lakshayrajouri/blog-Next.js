@@ -49,9 +49,10 @@
   }
   
   /* Container Layout */
-  .container {
+  .Container {
     display: flex;
-    margin: 20px;
+    width: 100%;
+    padding: 20px;
   }
   
   /* Sidebar */
@@ -99,7 +100,7 @@
   
   .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 20px;
   }
   
@@ -147,4 +148,15 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+
+  .filterButton{
+    padding: 10px 20px;
+    margin-bottom: 0.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
   }

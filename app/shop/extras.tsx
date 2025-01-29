@@ -7,23 +7,23 @@ export default function Extras() {
           <div className="filter-section">
             <h4>Category</h4>
             <ul>
-              <li><input type="checkbox" /> Electronics</li>
-              <li><input type="checkbox" /> Clothing</li>
-              <li><input type="checkbox" /> Accessories</li>
+              <li><input type="checkbox" /> Emerald</li>
+              <li><input type="checkbox" /> Diamond</li>
+              <li><input type="checkbox" /> Ruby</li>
+              <li><input type="checkbox" /> Sapphire</li>
             </ul>
           </div>
           <div className="filter-section">
-            <h4>Price</h4>
-            <input type="range" min="0" max="1000" />
-          </div>
-          <div className="filter-section">
-            <h4>Color</h4>
-            <ul>
-              <li><input type="checkbox" /> Red</li>
-              <li><input type="checkbox" /> Blue</li>
-              <li><input type="checkbox" /> Green</li>
-            </ul>
-          </div>
+             <h4>Price</h4>
+             <input
+               type="range"
+               min="0"
+               max="1000"
+              //  value={filters.priceRange[1]}
+              //  onChange={handlePriceChange}
+             />
+             {/* <p>Max Price: ${filters.priceRange[1]}</p> */}
+           </div>
           <div className="filter-section">
             <h4>Size</h4>
             <ul>
@@ -32,6 +32,49 @@ export default function Extras() {
               <li><input type="checkbox" /> Large</li>
             </ul>
           </div>
+          <button className='filterButton'>Apply filters</button>
         </aside>
     );
 }
+
+//<aside className="sidebar">
+//           <h3>Filters</h3>
+//           <div className="filter-section">
+//             <h4>Category</h4>
+//             <ul>
+//               <li>
+//                 <input
+//                   type="checkbox"
+//                   onChange={() => handleCategoryChange('Emerald')}
+//                 />{' '}
+//                 Emerald
+//               </li>
+//               <li>
+//                 <input
+//                   type="checkbox"
+//                   onChange={() => handleCategoryChange('Clothing')}
+//                 />{' '}
+//                 Clothing
+//               </li>
+//               <li>
+//                 <input
+//                   type="checkbox"
+//                   onChange={() => handleCategoryChange('Accessories')}
+//                 />{' '}
+//                 Accessories
+//               </li>
+//             </ul>
+//           </div>
+//           <div className="filter-section">
+//             <h4>Price</h4>
+//             <input
+//               type="range"
+//               min="0"
+//               max="1000"
+//               value={filters.priceRange[1]}
+//               onChange={handlePriceChange}
+//             />
+//             <p>Max Price: ${filters.priceRange[1]}</p>
+//           </div>
+//           <button className='filterButton'>Apply filters</button>
+//         </aside>
