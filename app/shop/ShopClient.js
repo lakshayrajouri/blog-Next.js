@@ -1,27 +1,31 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
 import "../styles/shop.css";
 
 export default function ShopClient({ products }) {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({
     category: [],
-    priceRange: [0, 1000],
+    priceRange: [0, 5000],
   });
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 30;
 
   // Filter products based on search & category
   const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.category.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = product.category
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
 
     const matchesCategory = filters.category.length
       ? filters.category.includes(product.category)
       : true;
 
-    const matchesPrice = product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1];
+    const matchesPrice =
+      product.price >= filters.priceRange[0] &&
+      product.price <= filters.priceRange[1];
 
     return matchesSearch && matchesCategory && matchesPrice;
   });
@@ -32,6 +36,12 @@ export default function ShopClient({ products }) {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
+  //   const handleSearch = () => {
+  //     let results = products.filter((product) =>
+  //       product.category.toLowerCase().includes(searchQuery.toLowerCase())
+  //     );
+  // }
 
   const handleCategoryChange = (category) => {
     setFilters((prev) => {
@@ -54,7 +64,7 @@ export default function ShopClient({ products }) {
       category: [],
       priceRange: [0, 5000],
     });
-    setSearchQuery('');
+    setSearchQuery("");
     setCurrentPage(1);
   };
 
@@ -76,10 +86,38 @@ export default function ShopClient({ products }) {
           <div className="filter-section">
             <h4>Category</h4>
             <ul>
-              <li><input type='checkbox' checked={filters.category.includes('Emerald')} onChange={() => handleCategoryChange('Emerald')}/>{' '} Emerald</li>
-              <li><input type='checkbox' checked={filters.category.includes('Diamond')} onChange={() => handleCategoryChange('Diamond')}/>{' '} Diamond</li>
-              <li><input type='checkbox' checked={filters.category.includes('Ruby')} onChange={() => handleCategoryChange('Ruby')}/>{' '} Ruby</li>
-              <li><input type='checkbox' checked={filters.category.includes('Sapphire')} onChange={() => handleCategoryChange('Sapphire')}/>{' '} Sapphire</li>
+              <li>
+                <input
+                  type="checkbox"
+                  checked={filters.category.includes("Emerald")}
+                  onChange={() => handleCategoryChange("Emerald")}
+                />{" "}
+                Emerald
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  checked={filters.category.includes("Diamond")}
+                  onChange={() => handleCategoryChange("Diamond")}
+                />{" "}
+                Diamond
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  checked={filters.category.includes("Ruby")}
+                  onChange={() => handleCategoryChange("Ruby")}
+                />{" "}
+                Ruby
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  checked={filters.category.includes("Sapphire")}
+                  onChange={() => handleCategoryChange("Sapphire")}
+                />{" "}
+                Sapphire
+              </li>
             </ul>
           </div>
           <div className="filter-section">
@@ -93,10 +131,13 @@ export default function ShopClient({ products }) {
             />
             <p>Max Price: ${filters.priceRange[1]}</p>
           </div>
-          <div className='filterButtons'>
-            <button onClick={handleResetFilters} className="filterButton">Remove Filters</button>
+          <div className="filterButtons">
+            {/* <button onClick={handleSearch} className="filterButton">Apply Filters</button> */}
+            <button onClick={handleResetFilters} className="filterButton">
+              Remove Filters
+            </button>
           </div>
-         </aside>
+        </aside>
 
         <main className="product-list">
           <h2 className="shopHeading">Shop Products</h2>
@@ -106,7 +147,9 @@ export default function ShopClient({ products }) {
                 <img src="https://via.placeholder.com/150" alt="Product" />
                 <h3>{product.category}</h3>
                 <p>${product.price}</p>
-                <Link href={`/shop/${product.id}`}><button>View</button></Link>
+                <Link href={`/shop/${product.id}`}>
+                  <button>View</button>
+                </Link>
               </div>
             ))}
           </div>
@@ -120,9 +163,13 @@ export default function ShopClient({ products }) {
               >
                 Previous
               </button>
-              <span>Page {currentPage} of {totalPages}</span>
+              <span>
+                Page {currentPage} of {totalPages}
+              </span>
               <button
-                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
                 disabled={currentPage === totalPages}
               >
                 Next

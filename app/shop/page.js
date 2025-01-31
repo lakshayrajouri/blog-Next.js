@@ -1,13 +1,8 @@
-import ShopPage from './ShopPage';
+import ShopPage from "./ShopPage";
 
 export default function Page() {
   return <ShopPage />;
 }
-
-
-
-
-
 
 // import Link from 'next/link';
 // import React, { useState } from 'react';
@@ -159,9 +154,6 @@ export default function Page() {
 //   }
 // }
 
-
-
-
 // // 'use client';
 // // import { useEffect, useState } from 'react';
 // // import Link from 'next/link';
@@ -195,7 +187,7 @@ export default function Page() {
 // //   }, []);
 
 // //   const handleSearch = () => {
-// //     let results = products.filter((product) => 
+// //     let results = products.filter((product) =>
 // //       product.category.toLowerCase().includes(searchQuery.toLowerCase())
 // //     );
 
